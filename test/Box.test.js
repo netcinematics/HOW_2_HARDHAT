@@ -3,7 +3,7 @@
 const { expect } = require('chai');
 
 // Start test block
-describe('Box', function () {
+describe.skip('Box', function () {
   before(async function () {
     this.Box = await ethers.getContractFactory('Box');
   });
