@@ -1,0 +1,28 @@
+{
+  "name": "HOW_2_HARDHAT",
+  "version": "1.0.0",
+  "description": "Follows the OpenZeppelin tutorial for Hardhat, with a bunch of /contracts and /tests",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.3",
+    "@openzeppelin/contracts": "^4.4.0",
+    "chai": "^4.3.4",
+    "ethers": "^5.5.2",
+    "hardhat": "^2.7.1"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/netcinematics/HOW_2_HARDHAT.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/netcinematics/HOW_2_HARDHAT/issues"
+  },
+  "homepage": "https://github.com/netcinematics/HOW_2_HARDHAT#readme"
+}
