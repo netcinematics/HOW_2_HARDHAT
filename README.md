@@ -1,6 +1,3 @@
-# HOW_2_HARDHAT
-Follows the OpenZeppelin tutorial for Hardhat, with a bunch of /contracts and /tests
-
 #HOW_TO_CRYPTO with HARDHAT!
 - go from zero to crypto, in this
 OPENZEPPELIN walkthrough, and STUDY of 
@@ -17,14 +14,11 @@ INDEX:
 ## STARTUP: 
 - compile, ganache, migrate, exec, test,
 > npm install
-> npx truffle compile
-> npx ganache-cli --deterministic 
-> npx truffle migrate --network development
-> npx truffle exec --network development ./scripts/index.js
-> npx truffle test
+> npx hardhat compile
+> npx hardhat node
+> npx hardhat test
 ----
-## 1) Build a CRYPTO-SCAFFOLD:
-----
+## 1) Build a SCAFFOLD:
 > mkdir PROJECTS/CRYPTO/EXAMPLE && cd PROJECTS/CRYPTO/EXAMPLE
 > npm init -y
 > code .
@@ -33,8 +27,15 @@ INDEX:
 > npm install --save-dev hardhat
 > npx hardhat    //creates config
 > npx hardhat compile
-> npm install --save-dev @openzeppelin/contracts
-> npx hardhat node    //similar to ganache
+> npx hardhat node    //Hardhat Network, similar to ganache
+> npx hardhat run scripts/sample-script.js --network localhost
+- expose JSON-RPC interface. 
+- Connect wallet or app to http://localhost:8545.
+###HARDHAT
+- Hardhat Network, uses @ethereumjs/vm
+- Hardhat Runner, extensible TASK RUNNER
+- tasks and plugins, tasks call tasks.
+
 - Hardhat uses /scripts to DEPLOY
 > npm install --save-dev @nomiclabs/hardhat-ethers ethers
 RESULT:
@@ -49,7 +50,6 @@ GitHub with LICENSE MIT
 .gitignore s3cr3tz.json
 -----
 ## 2) SOLIDITY PROJECT!
------
 > npm install --save-dev truffle
 - Truffle or Hardhat. 
 - Truffle uses Web3.js. Hardhat uses ethers.js
@@ -58,7 +58,6 @@ GitHub with LICENSE MIT
 - Like Ganache (local) or Rinkeby, public.
 -----
 ## 3) CONTRACTS!!
------
 > create /contracts/BASIC_721_oz.sol
 - go to Open Zeppelin Wizard to get code.
 - compile SOL into BYTECODE for EVM
@@ -68,6 +67,7 @@ GitHub with LICENSE MIT
 > .gitignore 
 artifacts
 cache
+---
 ##HARDHAT NETWORK CONSOLE
 > npx hardhat console --network localhost
 > const Box = await ethers.getContractFactory('Box');
@@ -83,7 +83,6 @@ cache
 > npm install --save-dev @openzeppelin/test-helpers
 -----
 ### 4) ERC20, ERC721, ERC1155
------
 OpenZeppelin Contract Wizard
 https://wizard.openzeppelin.com/
 MAX ANNOTATED EXAMPLES in /contracts
@@ -91,7 +90,6 @@ MAX ANNOTATED EXAMPLES in /contracts
 > npx truffle compile
 ----
 ## 5) DEVNET (testnet local)
-----
 - with Ganache-CLI
 > npm install --save-dev ganache-cli
 - DEPLOY / migrate
@@ -112,7 +110,6 @@ MAX ANNOTATED EXAMPLES in /contracts
 - if ERROR, update migrate, or restart GANACHE
 ----
 ## 6) PROTOTYPE-TEST (local network - truffle CONSOLE)
-----
 > npx truffle console --network development
 - now INIT CONTRACT VARIABLE (charged 0.008 ETH)
 > accounts
@@ -125,7 +122,6 @@ MAX ANNOTATED EXAMPLES in /contracts
 - CMD-LINE-QUERY
 ----
 ## 7) SCRIPT-DEV ( /script/js with Web3.js)
-----
 - Truffle executes ./scripts
 - once deployed, any library sees contract
 - in scripts-index:
@@ -134,7 +130,6 @@ MAX ANNOTATED EXAMPLES in /contracts
 > npx truffle exec --network development ./scripts/index.js
 ----
 ## 8) JS instance of CONTRACT ( Web3.js)
-----
 - Truffle CONTRACT, as JSON.
 // const BASIC_oz = artifacts.require('BASIC_oz');
 // const _basic_oz = await BASIC_oz.deployed();
@@ -145,14 +140,12 @@ MAX ANNOTATED EXAMPLES in /contracts
 // await _basic_oz.store(23);
 ----
 ## 9) UNIT-TESTS ( chai.js)
-----
 > npm install --save-dev chai
 - /tests mirror /contracts 1 to 1.
 > create test/BASIC_oz.test.js
 > npx truffle test
 ----
 ## 10) OZ TEST-HELPERS ( complex assertions )
-----
 > npm install --save-dev @openzeppelin/test-helpers
 - EXTRAs like
 - veryify revert, exact balances, events emitted, time.
@@ -161,8 +154,8 @@ MAX ANNOTATED EXAMPLES in /contracts
 - https://github.com/OpenZeppelin/openzeppelin-test-helpers/tree/master/test/src
 ----
 ## 11) ERC20, ERC721, ERC1155 ( standards )
-----
 ###ERC20
+----
 ###ERC721
 - MINIMUM interface for SMARTCONTRACTS 
 - managed, owned, traded - TOKENS.
@@ -213,6 +206,7 @@ ERC721 is Context,IERC721,IERC721Metadata
 > fn _setApprovalForAll
 > fn _checkOnERC721Received
 > fn _beforeTokenTransfer
+----
 ###ERC721-OPENZEPPELIN
 LINK: https://docs.openzeppelin.com/contracts/4.x/api/token/erc721
 - INTERFACES, CONTRACTS, UTILITIES.
@@ -303,12 +297,13 @@ TODO: look to make this creator role.
 ###UTILITIES
 ###ERC721Holder
 > fn onERC721Received.
-
+----
 ###ERC1155
-
+----
 #CRYPTO-USE-CASES
 ###ERC721
 - UNIQUE TOKENS.
+- mint burn
 - transfer and track
 - sell token: 
 - auction, english, dutch
